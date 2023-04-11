@@ -44,7 +44,33 @@ a{
 body{
     background-color: rgb(195, 195, 223);
 }
+img{
+    width:200px;
+    height:250px;
+}
+form{
+    width:300px;
+    height:300px;
+    padding-left:40%;
+   
 
+}
+input{
+   margin:5%;
+   width:60%;
+   
+}
+select{
+    margin:5%; 
+    width:60%;
+    padding-right:-100px;
+}
+button{
+    margin-left:35%;
+}
+button:hover{
+    background-color:green;
+}
 /* fotter */
 footer{
     width:100%;

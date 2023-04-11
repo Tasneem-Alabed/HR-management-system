@@ -26,6 +26,25 @@
     </header>
     <main>
       <!-- Main render the information for each employee from javascript. -->
+      <form id="empForm">
+        <lable for="name">Full Name <input  id="name"type="text" name="name" required/></lable><br>
+    <lable>Department<select name="dep"  ><br>
+        <option >select</option>
+        <option name="Administration">Administration</option>
+        <option name="Marketing" >Marketing</option>
+        <option name="Development">Development</option>
+        <option name="Finance">Finance</option>
+    </select></lable> <br>
+    <lable >Select Level<select name="level">
+        <option>select</option>
+        <option>Junior</option>
+        <option>Mid-Senior</option>
+        <option>Senior</option>
+        </select></lable> <br>
+        <label>Image  URL <input type="text" name="img"/></label><br>
+        <input type="submit" > <br>
+
+    </form>
 <section id="render">
     <script src="./JS/app.js"></script>
 </section>

@@ -1,5 +1,6 @@
 'use strict';
 
+let form = document.getElementById('empForm');
 let employee = [];
 function Employee(employeeId , fullName , department , level , image , salary){
 this.Employee=employeeId;
@@ -7,7 +8,7 @@ this.fullName=fullName;
 this.department=department;
 this.level=level;
 this.salary= 0;
-this.image=image;
+this.image=`./img/${this.fullName}.jpg`;
 employee.push(this);
 }
 
@@ -50,9 +51,14 @@ hadi.calculate();
 
 Employee.prototype.render =function(){
    
-        document.write(`The name is : ${this.fullName}   the Salary    = ${this.salary}`);
+        document.write(`The name is : ${this.fullName}   the Salary = ${this.salary}  `);
+        const imgEl = document.createElement('img');
+    let secEL=document.getElementById("render");
+    secEL.appendChild(imgEl);
+    imgEl.src = this.image;
         document.write("<br>")
         document.write("<hr>")
+        
 
     }
  
@@ -63,3 +69,25 @@ Employee.prototype.render =function(){
     }
  }
  renderEmployee();
+
+ function generateNumber(){
+   return Math.floor(Math.random()*(9000+1000));
+ }
+
+ form.addEventListener('submit' , gitData);
+
+ function gitData(event){
+event.preventDefault();
+ let name= (event.target.name.value);
+ let department = (event.target.dep.value);
+  
+
+ let level=(event.target.level.value);
+ let img=(event.target.img.value);
+
+ console.log(name,department,level,img);
+ }
+    
+ generateNumber();
+ 
+ 
