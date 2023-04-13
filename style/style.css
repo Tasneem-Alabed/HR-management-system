@@ -71,6 +71,19 @@ button{
 button:hover{
     background-color:green;
 }
+div{
+    margin-left:40%;
+    background-color: white;
+    width:200px;
+    text-align: center;
+    margin-top: 40px;
+
+}
+div p {
+    display: inline-block;
+    width:100px;
+    height:20px;
+}
 /* fotter */
 footer{
     width:100%;
