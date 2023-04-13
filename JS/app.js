@@ -29,16 +29,17 @@ let hadi= new Employee(1006 , "Hadi Ahmad","Finance","Mid-Senior");
 
 Employee.prototype.calculate = function() {
  if(this.level == "Senior"){
- this.salary = randomNamber(1500,2000) - (randomNamber(1500,2000) *0.075);
+ this.salary = randomNamber(1500,2000) - (randomNamber(1500,2000) * 0.075);
  }else if(this.level=="Mid-Senior"){
-     this.salary=  randomNamber(1000,1500) -( randomNamber(1000,1500)* 0.075) ;
- }else if(this.level=="Junior"){
+     this.salary=  randomNamber(1000,1500) -(randomNamber(1000,1500) * 0.075) ;
+ }else if(this.level == "Junior"){
      this.salary=  randomNamber(500,1000) -(randomNamber(500,1000) * 0.075) ;
  }
 }
 
 function randomNamber( min , max){
-return Math.floor(Math.random()) * (max-min)+min;
+ 
+return Math.floor(Math.random() * (max - min) ) + min;
 
 }
 ghazi.calculate();
