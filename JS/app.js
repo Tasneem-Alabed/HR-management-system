@@ -110,49 +110,62 @@ function gitData(event) {
     let level = (event.target.level.value);
     let salary = calcoSalary(level);
     let img = (event.target.img.value);
-
-    rendEmployee(name, id, department, level, salary, img);
+    let newEmployee = new Employee (name , id , department , level ,salary , img) ;
+    // rendEmployee(name, id, department, level, salary, img);
+   
 }
-function rendEmployee(name, id, department, level, salary, img) {
+ 
 
-
+function rendEmployee () {
     const seEl = document.getElementById("rendEmployee");
 
     const divEl = document.createElement("div");
 
+
+gitEmployee();
+ 
+    for(let i = 0 ; i < employee.length ; i++){
     seEl.appendChild(divEl);
     const imgEl = document.createElement("img");
     divEl.appendChild(imgEl);
-    imgEl.src =`./img/${name}.jpg`;
+    imgEl.src =`./img/${employee[i].fullName}.jpg`;
 
     const div2El =document.createElement("divEl");
     divEl.appendChild( div2El);
 
     const pEl = document.createElement("p");
     divEl.appendChild(pEl);
-    pEl.textContent="Name :"+name;
+    pEl.textContent=`Name ${employee[i].fullName}`;
 
     const p2El =document.createElement("p");
     divEl.appendChild(p2El);
-    p2El.textContent="Id :"+id;
+    p2El.textContent= ` Id : ${employee[i].employeeId}`;
 
   
     const p3El = document.createElement("p");
     divEl.appendChild(p3El);
-     p3El.textContent="Department : "+department;
+     p3El.textContent="Department : "+ employee[i].department;
 
     const p4El=document.createElement("p");
     divEl.appendChild(p4El);
-    p4El.textContent= "Level : "+level;
+    p4El.textContent= "Level : "+ employee[i].level;
 
     const p5El=document.createElement("p");
     divEl.appendChild(p5El);
-    p5El.textContent="Salary : "+salary +"$";
+    p5El.textContent="Salary : "+employee[i].salary +"$";
 
 
-
-
+    let jsonArray = JSON.stringify(employee);
+    localStorage.setItem("Employee" , jsonArray)
+    }
 }
 
 generateNumber();
 
+function gitEmployee(){
+    let jsonArray = localStorage.getItem("Employee");
+    let dataFromJson = JSON.parse(jsonArray);
+    employee = dataFromJson;
+     
+}
+rendEmployee();
