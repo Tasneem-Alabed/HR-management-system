@@ -3,12 +3,16 @@
 
 let form = document.getElementById('empForm');
 let employee = [];
+let but= document.getElementById("rendFlex");
+let but1=document.getElementById("rendFlex1");
+const seEl = document.getElementById("rendEmployee");
+
 function Employee(employeeId, fullName, department, level, image, salary) {
-    this.Employee = employeeId;
+    this.employeeId = employeeId;
     this.fullName = fullName;
     this.department = department;
     this.level = level;
-    this.salary = 0;
+    this.salary = calcoSalary(level);;
     this.image = `./img/${this.fullName}.jpg`;
     employee.push(this);
 }
@@ -55,7 +59,7 @@ function randomNamber(min, max) {
 
     return Math.floor(Math.random() * (max - min)) + min;
 
- }
+}
 // ghazi.calculate();
 // tamara.calculate();
 // lanl.calculate();
@@ -85,7 +89,7 @@ function randomNamber(min, max) {
 
 //     }
 // }
-// renderEmployee();
+
 
 function generateNumber() {
     return Math.floor(Math.random() * (9000 + 1000) + 1000);
@@ -110,62 +114,118 @@ function gitData(event) {
     let level = (event.target.level.value);
     let salary = calcoSalary(level);
     let img = (event.target.img.value);
-    let newEmployee = new Employee (name , id , department , level ,salary , img) ;
+
+    let idEm=generateNumber() ;
+    let sal =calcoSalary(level);
+    let newEmployee = new Employee( idEm , name , department, level,  img, sal );
     // rendEmployee(name, id, department, level, salary, img);
-   
+    let jsonArray = JSON.stringify(employee);
+    
+     localStorage.setItem("Employee", jsonArray)
+     
+     rend( id ,name , department , level , salary , img);
+
 }
  
-
-function rendEmployee () {
-    const seEl = document.getElementById("rendEmployee");
-
+function rend(id ,name  , department , level , salary , img){
+  
     const divEl = document.createElement("div");
-
-
-gitEmployee();
- 
-    for(let i = 0 ; i < employee.length ; i++){
+    
     seEl.appendChild(divEl);
     const imgEl = document.createElement("img");
     divEl.appendChild(imgEl);
-    imgEl.src =`./img/${employee[i].fullName}.jpg`;
+    imgEl.src = `./img/${name}.jpg`;
 
-    const div2El =document.createElement("divEl");
-    divEl.appendChild( div2El);
+    // function Employee(employeeId, fullName, department, level, image, salary) 
 
     const pEl = document.createElement("p");
     divEl.appendChild(pEl);
-    pEl.textContent=`Name ${employee[i].fullName}`;
+    pEl.textContent = `Name :${name}`;
 
-    const p2El =document.createElement("p");
+    const p2El = document.createElement("p");
     divEl.appendChild(p2El);
-    p2El.textContent= ` Id : ${employee[i].employeeId}`;
+    p2El.textContent = ` Id : ${id}`;
 
-  
     const p3El = document.createElement("p");
     divEl.appendChild(p3El);
-     p3El.textContent="Department : "+ employee[i].department;
+    p3El.textContent = `Department:${department}` ;
 
-    const p4El=document.createElement("p");
+    const p4El = document.createElement("p");
     divEl.appendChild(p4El);
-    p4El.textContent= "Level : "+ employee[i].level;
+    p4El.textContent = `Level : ${ level}`;
 
-    const p5El=document.createElement("p");
+    const p5El = document.createElement("p");
     divEl.appendChild(p5El);
-    p5El.textContent="Salary : "+employee[i].salary +"$";
+    p5El.textContent = `Salary : ${salary } $`;
 
-
-    let jsonArray = JSON.stringify(employee);
-    localStorage.setItem("Employee" , jsonArray)
-    }
 }
 
-generateNumber();
+ 
+ 
+function rendEmployee() {
+   
 
-function gitEmployee(){
+    
+
+    gitEmployee();
+   
+    if(employee == null){
+        employee = [];
+    }   
+ 
+    for (let i = 0; i < employee.length ; i++) {
+        const divEl = document.createElement("div");
+        seEl.appendChild(divEl);
+        const imgEl = document.createElement("img");
+        divEl.appendChild(imgEl);
+        imgEl.src = `./img/${employee[i].fullName}.jpg`;
+
+        // function Employee(employeeId, fullName, department, level, image, salary) 
+
+        const pEl = document.createElement("p");
+        divEl.appendChild(pEl);
+        pEl.textContent = `Name : ${employee[i].fullName}`;
+
+        const p2El = document.createElement("p");
+        divEl.appendChild(p2El);
+        p2El.textContent = ` Id : ${employee[i].employeeId}`;
+
+
+        const p3El = document.createElement("p");
+        divEl.appendChild(p3El);
+        p3El.textContent = `Department : ${ employee[i].department}` ;
+
+        const p4El = document.createElement("p");
+        divEl.appendChild(p4El);
+        p4El.textContent = `Level : ${employee[i].level}`;
+
+        const p5El = document.createElement("p");
+        divEl.appendChild(p5El);
+        p5El.textContent = `Salary : ${employee[i].salary } $`;
+
+     
+    }
+
+}
+
+
+
+function gitEmployee() {
     let jsonArray = localStorage.getItem("Employee");
     let dataFromJson = JSON.parse(jsonArray);
     employee = dataFromJson;
-     
+
 }
+
 rendEmployee();
+but.addEventListener('click', showEmploye);
+but1.addEventListener('click', showEmploye);
+function showEmploye(){
+   document.getElementById("rendEmployee").style.flexDirection = "row";
+   document.getElementById("rendEmployee").style.marginLeft = "0%"
+}
+but1.addEventListener('click', showEmploye1);
+function showEmploye1(){
+    document.getElementById("rendEmployee").style.flexDirection = "column";
+    document.getElementById("rendEmployee").style.marginLeft = "37%"
+ }
