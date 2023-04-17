@@ -157,6 +157,7 @@ function rend(id ,name  , department , level , salary , img){
     const p5El = document.createElement("p");
     divEl.appendChild(p5El);
     p5El.textContent = `Salary : ${salary } $`;
+    gitEmployee();
 
 }
 
@@ -229,3 +230,5 @@ function showEmploye1(){
     document.getElementById("rendEmployee").style.flexDirection = "column";
     document.getElementById("rendEmployee").style.marginLeft = "37%"
  }
+  
+ localStorage.clear();
