@@ -231,4 +231,4 @@ function showEmploye1(){
     document.getElementById("rendEmployee").style.marginLeft = "37%"
  }
   
- localStorage.clear();
+  
