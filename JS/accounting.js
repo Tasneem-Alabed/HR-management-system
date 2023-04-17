@@ -46,7 +46,7 @@ function renderInformation() {
     totalSalar += th7.textContent = totalSalary(th5.textContent);
     const th8 = document.createElement("th");
     tr2.appendChild(th8);
-    averg += th8.textContent = avareg(th5.textContent);
+    averg+= th8.textContent = avareg(th5.textContent);
 
     const tr3 = document.createElement("tr");
     tabelEl.appendChild(tr3);
@@ -62,7 +62,7 @@ function renderInformation() {
     totalSalar += th11.textContent =totalSalary(th9.textContent);
     const th12 = document.createElement("th");
     tr3.appendChild(th12);
-    averg += th12.textContent =avareg(th9.textContent);
+    averg+= th12.textContent =avareg(th9.textContent);
 
 
     const tr4 = document.createElement("tr");
@@ -79,7 +79,7 @@ function renderInformation() {
     totalSalar += th15.textContent = totalSalary(th13.textContent);
     const th16 = document.createElement("th");
     tr4.appendChild(th16);
-    averg += th16.textContent = avareg(th13.textContent);
+    averg+= th16.textContent = avareg(th13.textContent);
 
      
     const tr6 = document.createElement("tr");
@@ -99,7 +99,7 @@ function renderInformation() {
 
     const th24 = document.createElement("th");
     tr6.appendChild(th24);
-    averg += th24.textContent =avareg(th23.textContent);
+    averg+= th24.textContent =avareg(th23.textContent);
 
 
     const tr = document.createElement("tr");
@@ -116,7 +116,7 @@ function renderInformation() {
     th19.textContent = totalSalar ;
     const th20 = document.createElement("th");
     tr.appendChild(th20);
-   th20.textContent =averg  ;
+   th20.textContent = totalSalar/countent  ;
 
 
    
